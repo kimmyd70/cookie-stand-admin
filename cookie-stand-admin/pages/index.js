@@ -5,11 +5,11 @@ import { useState } from "react";
 export default function Home() {
   const [formInfo, setInfo] = useState("");
 
-  function infoHandler(event) {
+  function formHandler(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const formJSON = JSON.stringify(Object.fromEntries(formData));
-
+    const formJSON = JSON.stringify(Object.fromEntries(formData),null,2);
+// Need to parseInt the number fields for proper display
     setInfo(formJSON);
   }
   
@@ -25,7 +25,7 @@ export default function Home() {
       </header>
 
       <main class="text-center">
-        <form onSubmit = {infoHandler} name = "formData" class= "flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
+        <form onSubmit = {formHandler} name = "formData" class= "flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
           <h2 class="mb-5">Create Cookie Stand</h2>
 
           <div class="flex mb-5">
@@ -36,22 +36,22 @@ export default function Home() {
           <div class="flex items-center gap-x-4 mt-5 text-xs">
               <div class="flex-1">
                 <label for="minCustomers" class="">Maximum Customers Per Hour</label>
-                <input name="minCustomers" class="w-full"></input>
+                <input type ="number" step="0.1" name="minCustomers" class="w-full"></input>
               </div>
               <div class="flex-1">
                 <label for="maxCustomers" class="">Minimum Customers Per Hour</label>
-                <input name="maxCustomers" class="w-full"></input>
+                <input type ="number" step="0.1" name="maxCustomers" class="w-full"></input>
               </div>
               <div class="flex-1">
                 <label for="avgCookies" class="">Average Cookies Per Sale</label>
-                <input name="avgCookies" class="w-full"></input>
+                <input type ="number" step="0.1" name="avgCookies" class="w-full"></input>
               </div>
             <button class ="flex-1 pt-3 pb-3 text-xs bg-green-500">Create</button>
           </div>
         </form>
         <h3 class="my-5 text-gray-400">Report Table Coming Soon ...</h3>
 
-        <h3 className="my-5 text-gray-400">{formInfo}</h3>
+        <p className="my-5 text-gray-400">{formInfo}</p>
       </main>
 
       <footer class="p-3 text-sm bg-green-500" >
