@@ -22,11 +22,11 @@ ____________________
 pages/Index.js in `assets`
 - [x] Have <Head> component with page title set to Cookie Stand Admin
 
-- [ ] Have a header component that matches spec.
+- [x] Have a header component that matches spec.
 
-- [ ] Have a <main> component containing <form> and a placeholder component showing JSON string of last created Cookie Stand.
+- [x] Have a <main> component containing <form> and a placeholder component showing JSON string of last created Cookie Stand.
 
-- [ ] Have a <footer> component that matches spec.
+- [x] Have a <footer> component that matches spec.
 
 Pro tip: Tailwind CSS Extension Pack
 
