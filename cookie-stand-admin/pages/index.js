@@ -1,6 +1,18 @@
 import Head from 'next/head'
 
+import { useState } from "react";
+
 export default function Home() {
+  const [formInfo, setInfo] = useState("");
+
+  function infoHandler(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const formJSON = JSON.stringify(Object.fromEntries(formData));
+
+    setInfo(formJSON);
+  }
+  
   return (
     <div class="min-h-screen box-border bg-green-50">
       <Head>
@@ -9,17 +21,16 @@ export default function Home() {
       </Head>
 
       <header class = "text-xl bg-green-500">
-        <h1>Cookie Stand Admin</h1>
+        <h1 class = "pl-4">Cookie Stand Admin</h1>
       </header>
 
       <main class="text-center">
-        {/* <form onSubmit = {createCookieStandHandler} name = "formData" className= "flex-row mx-48 min-w-min p-4 my-5 rounded-md bg-green-300"> */}
-        <form  name = "formData" class= "flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
+        <form onSubmit = {infoHandler} name = "formData" class= "flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
           <h2 class="mb-5">Create Cookie Stand</h2>
 
           <div class="flex mb-5">
-            <label for="location" class="pr-4 pt-2 text-xs">Location</label>
-            <input name = "location" class="flex-1 bg-gray-200"></input>
+            <label for="location" class="pr-3 text-xs">Location</label>
+            <input name = "location" class="flex-1 pl-2 text-xs bg-gray-200"></input>
           </div>
 
           <div class="flex items-center gap-x-4 mt-5 text-xs">
@@ -35,10 +46,12 @@ export default function Home() {
                 <label for="avgCookies" class="">Average Cookies Per Sale</label>
                 <input name="avgCookies" class="w-full"></input>
               </div>
-            <button class ="flex-1 pt-4 pb-4 text-xs bg-green-500">Create</button>
+            <button class ="flex-1 pt-3 pb-3 text-xs bg-green-500">Create</button>
           </div>
         </form>
-        <h3 class="">Report Table Coming Soon ...</h3>
+        <h3 class="my-5 text-gray-400">Report Table Coming Soon ...</h3>
+
+        <h3 className="my-5 text-gray-400">{formInfo}</h3>
       </main>
 
       <footer class="p-3 text-sm bg-green-500" >
