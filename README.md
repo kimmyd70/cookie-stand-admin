@@ -130,3 +130,72 @@ ____________________
 
 None required (visual against spec)
 
+_____________________
+
+---- v3 ----
+_____________________
+
+### PR for this file: https://github.com/kimmyd70/cookie-admin/pull/3
+
+This is Lab 39 of 401-Python (seattle-py-401n2)
+
+Developers: Kim Damalas
+
+Date: 15 April 2021
+____________________
+
+## Feature Tasks
+
+The two specs for lab are in `assets`. pages/Index.js should export a `<Home>` component.  `<Home>` requirements...
+
+- [ ] If user is NOT logged in then `<LoginForm>` should render.
+
+- [ ] If user IS logged in then `<CookieStandAdmin>` component should render.
+    
+--------------------
+
+### `<LoginForm>` requirements...
+
+- [ ] Should receive a function passed in to call when form is submitted.
+
+- [ ] The function should be called with username and password arguments.
+----------------
+
+### `<CookieStandAdmin>` requirements...
+
+- [ ] When user fills out form to add location then the data should be posted to API
+
+- [ ] While waiting for API response the `<CookieStandTable>` should render the new row in a pending state.
+
+- [ ] When API response is complete then `<CookieStandTable>` should render latest data.
+----------------
+
+### `<CookieStandTable>` requirements...
+
+- [ ] Component should continue to display Cookie Stand info as in version 2
+
+- [ ] Add a delete icon in each stand’s location cell.
+
+- [ ] Clicking delete icon should immediately delete the Cookie Stand.
+
+- [ ] API should be informed that Cookie Stand was deleted.
+
+- [ ] Continue to style all components using TailwindCSS utility classes to match spec
+
+__________________
+
+### Server and Client
+
+- Server: Next.js
+- Client: REACT
+
+____________________
+
+### Testing
+
+None required (visual against spec)
+
+_____________________
+
+For v3, JB suggested we work off a forked (?) version of the class repo...will need to rewatch video to confirm now to start this given the lab instructions say "keep working in your repo"
+
