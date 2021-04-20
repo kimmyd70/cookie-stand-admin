@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 
 import { useState } from "react";
+import { hours } from './data';
 
 export default function Home() {
   const [formInfo, setInfo] = useState("");
@@ -77,7 +78,7 @@ function ResponseTable(props){
         <tr>
           <th>Location</th>
           {/* pull in hours */}
-          <th> ***hours***</th>
+          {hours.map(hour =>(<th key = {hour}>{hour}</th>))}
           <th>Totals</th>
         </tr>
       </thead>
