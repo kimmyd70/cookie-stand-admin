@@ -20,8 +20,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header class = "text-xl bg-green-500">
+      <header class = "flex justify-between text-xl bg-green-500 p-4">
         <h1 class = "pl-4">Cookie Stand Admin</h1>
+        <button class = "p-2 border rounded mr-4 text-sm items-center" href = "">Overview</button>
       </header>
 
       <main class="text-center">
@@ -49,14 +50,46 @@ export default function Home() {
             <button class ="flex-1 pt-3 pb-3 text-xs bg-green-500">Create</button>
           </div>
         </form>
-        <h3 class="my-5 text-gray-400">Report Table Coming Soon ...</h3>
+        {/* <div><h3 class="my-5 text-gray-400">Report Table Coming Soon ...</h3>
 
-        <p className="my-5 text-gray-400">{formInfo}</p>
+        <p className="my-5 text-gray-400">{formInfo}</p> */}
+        <div>
+          <ResponseTable />
+        </div>
       </main>
 
-      <footer class="p-3 text-sm bg-green-500" >
-        <p>&copy; 2021</p>
+      <footer class="p-3 mt-8 text-sm bg-green-500" >
+        <p>## bring in stand total number</p>
+        {/* <p>&copy; 2021</p> */}
       </footer>
     </div>
-  )
+  );
+}
+
+function ResponseTable(props){
+  return(
+    <table class="">
+      <thead class = "text-center text-sm bg-green-500">
+        <tr>
+          <th >Location</th>
+          {/* pull in hours */}
+          <th> ***hours***</th>
+          <th>Totals</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class = "text-center text-sm">
+          <td >first stand</td>
+          <td> hour1</td>
+        </tr>
+      </tbody>
+
+      <tfoot class = "text-center text-sm bg-green-500 mb-3" >
+        <tr>
+          <td>Totals</td>
+        </tr>
+      </tfoot>
+    </table>
+  );
 }
