@@ -2,39 +2,83 @@ import { useState } from 'react';
 
 
 
-export default function CookieForm() {
-    function formHandler(event) {
+
+export default function CookieForm({ onCreate }) {
+    const initVal = {
+        location: "",
+        max: 0,
+        min: 0,
+        avg: 0,
+    }
+
+    const[values,setValues] = useState(initVal);
+
+    function submitHandler(event) {
         event.preventDefault();
-        const formData = new FormData(event.target);
-        const formJSON = JSON.stringify(Object.fromEntries(formData),null,2);
-    // Need to parseInt the number fields for proper display
-        setInfo(formJSON);
+        onCreate(values);    
+        setValues(initVal);
+    }
+
+    function inputChangeHandler(event) {
+        let { name, value, type } = event.target;
+    
+        if (type === "number") {
+            value = parseFloat(value);
+        }
+    
+        setValues({ ...values, [name]: value });
     }
     
 
     return (
-        <form onSubmit={formHandler} name="formData" class="flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
+        <form onSubmit={submitHandler} class="flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
             <h2 class="mb-5">Create Cookie Stand</h2>
 
             <div class="flex mb-5">
-                <label for="location" class="pr-3">Location</label>
-                <input name="location" class="flex-1 pl-2  bg-gray-200"></input>
+                <label htmlFor="location" class="pr-3">Location</label>
+                <input
+                    type="text"
+                    name="location"
+                    id="location"
+                    value={values.location}
+                    onChange={inputChangeHandler}
+                    placeholder="Cookie Stand Location"
+                />            
             </div>
 
             <div class="flex items-center gap-x-4 mt-5 ">
-                <div class="flex-1">
-                    <label for="minCustomers" class="">Maximum Customers Per Hour</label>
-                    <input type="number" step="0.1" name="minCustomers" class="w-full"></input>
+            <div class="flex-1">
+                <label htmlFor="minCustomers" class="">Minimum Customers Per Hour</label>
+                <input
+                    type="number"
+                    name="minCustomers"
+                    id="minCustomers"
+                    value={values.minCustomers}
+                    onChange={inputChangeHandler}
+                />                
                 </div>
-                <div class="flex-1">
-                    <label for="maxCustomers" class="">Minimum Customers Per Hour</label>
-                    <input type="number" step="0.1" name="maxCustomers" class="w-full"></input>
-                </div>
-                <div class="flex-1">
-                    <label for="avgCookies" class="">Average Cookies Per Sale</label>
-                    <input type="number" step="0.1" name="avgCookies" class="w-full"></input>
-                </div>
-                <button class="flex-1 rounded-md pt-3 pb-3  bg-green-500">Create</button>
+            <div class="flex-1">
+                <label htmlFor="maxCustomers" class="">Maximum Customers Per Hour</label>
+                <input
+                    type="number"
+                    name="maxCustomers"
+                    id="maxCustomers"
+                    value={values.maxCustomers}
+                    onChange={inputChangeHandler}
+                />                  
+            </div>
+            <div class="flex-1">
+                <label htmlFor="avgCookies" class="">Average Cookies Per Sale</label>
+                <input
+                    type="number"
+                    step ="0.1"
+                    name="avgCookies"
+                    id="avgCookies"
+                    value={values.avgCookies}
+                    onChange={inputChangeHandler}
+                />
+            </div>
+                <button type = "submit" class="flex-1 rounded-md pt-3 pb-3  bg-green-500">Create</button>
             </div>
         </form>
 
