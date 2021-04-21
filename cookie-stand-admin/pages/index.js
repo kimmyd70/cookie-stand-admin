@@ -23,13 +23,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header class = "flex justify-between text-3xl bg-green-500 p-4">
-        <h1 class = "pl-4">Cookie Stand Admin</h1>
-        {/* <link href ="/overview"> */}
-          <button class = "bg-gray-50 p-2 border rounded mr-4 text-sm items-center" href = "/overview"><a>Overview</a></button>
-        {/* </link> */}
-      </header>
-
       <main class="text-center">
         <form onSubmit = {formHandler} name = "formData" class= "flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
           <h2 class="mb-5">Create Cookie Stand</h2>
@@ -63,10 +56,6 @@ export default function Home() {
         </div>
       </main>
 
-      <footer class="p-3 mt-8  bg-green-500" >
-        <p>## bring in stand total number</p>
-        {/* <p>&copy; 2021</p> */}
-      </footer>
     </div>
   );
 }
