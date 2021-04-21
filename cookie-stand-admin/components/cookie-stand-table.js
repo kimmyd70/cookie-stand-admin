@@ -1,6 +1,7 @@
+import { hours } from '../pages/data';
 
 
-function ResponseTable(props) {
+export default function CookieTable() {
     return (
         <table class="">
             <thead class="text-center bg-green-500 p-1">
