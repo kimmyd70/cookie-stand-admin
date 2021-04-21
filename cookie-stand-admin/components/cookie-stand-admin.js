@@ -13,16 +13,16 @@ export default function CookieAdmin(){
     const totalSales = hourlySales.reduce((acc, hour) => acc = acc + hour, 0)
     const totalLength = stands.length
 
-    function onCreate(event){
-        event.preventDefault()
-        const stand = {
-        location: event.target.location.value,
-        minCustomers: event.target.minCustomers.value,
-        maxCustomers: event.target.maxCustomers.value, 
-        avgCustomers: event.target.avgCustomers.value,
-        }
-        setStands([...stands, stand])
-    }
+    // function onCreate(event){
+    //     // event.preventDefault();
+    //     const stand = {
+    //     location: event.target.location.value,
+    //     minCustomers: event.target.minCustomers.value,
+    //     maxCustomers: event.target.maxCustomers.value, 
+    //     avgCustomers: event.target.avgCustomers.value,
+    //     };
+    //     setStands([...stands, stand]);
+    // }
 
 // -----v3-----
     // useEffect(() => {
@@ -72,7 +72,7 @@ export default function CookieAdmin(){
             <CookieHeader/>
 
             <main class = "text-center">
-                <CookieForm />
+                <CookieForm onCreate />
                 <CookieTable stands = {stands} />
             </main>
             <CookieFooter totalLength= {totalLength} />

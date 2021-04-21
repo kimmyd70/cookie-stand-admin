@@ -2,6 +2,9 @@ import { hours } from '../pages/data';
 
 
 export default function CookieTable({ stands, totalLength}) {
+    const hourlySales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
+    const totalSales = hourlySales.reduce((acc, hour) => acc = acc + hour, 0)
+
         if (totalLength == 0) {
         return (<p className="text-center flex justify-center">No Cookie Stands Available</p>)
         }
@@ -55,12 +58,9 @@ export default function CookieTable({ stands, totalLength}) {
             <tfoot class="font-bold">
 
                 <tr className="text-right bg-green-400">
-                    <th>Totals</th>
-                    {hours.map((_, i) => {
-                        const amt = stands.reduce((acc, cur) => acc + cur.cookiesEachHour[i], 0);
-                        return <td key={'amt' + i}>{amt}</td>
-                    })}
-                    <td>{stands.reduce((acc, cur) => acc + cur.totalDailyCookies, 0)}</td>
+                    <td >Totals</td>
+                        {hourlySales.map(sales => (<td>{sales * totalLength}</td>))}
+                    <td>{totalSales * totalLength}</td>                
                 </tr>
 
             </tfoot>

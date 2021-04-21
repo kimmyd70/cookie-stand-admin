@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 
 
-export default function CookieForm({ onCreate }) {
+export default function CookieForm() {
     const initVal = {
         location: "",
         max: 0,
@@ -12,12 +12,28 @@ export default function CookieForm({ onCreate }) {
     }
 
     const[values,setValues] = useState(initVal);
+    const [stands, setStands] = useState([]);
+
+    function onCreate(event){
+        // event.preventDefault();
+        const stand = {
+        location: event.target.location.value,
+        minCustomers: event.target.minCustomers.value,
+        maxCustomers: event.target.maxCustomers.value, 
+        avgCookies: event.target.avgCookies.value,
+        };
+        setStands([...stands, stand]);
+
+    }
+
 
     function submitHandler(event) {
         event.preventDefault();
         onCreate(values);    
         setValues(initVal);
     }
+
+
 
     function inputChangeHandler(event) {
         let { name, value, type } = event.target;
