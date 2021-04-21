@@ -65,7 +65,7 @@ The two specs for lab are in `assets`. Pages/Index.js should return top level co
 
 - [x] Have a `<Head>` component.
     - `<Head>` should set page title Cookie Stand Admin
-- [ ] Have a custom `<Header>` component that matches spec.
+- [x] Have a custom `<Header>` component that matches spec.
     - `<Header>` component should have Next `<Link>` to overview page.
 - [ ] Have a `<main>` component.
     - Within `<main>` have custom `<CreateForm>` and `<ReportTable>` components.
@@ -84,7 +84,7 @@ The two specs for lab are in `assets`. Pages/Index.js should return top level co
 --------
 ### `<ReportTable>`    details…
 
-- [ ] should receive hours on props that is an array cookie stand hours of operation.
+- [X] should receive hours on props that is an array cookie stand hours of operation.
 
 - [ ] should receive reports on props that is an array all cookie stand objects.
 
@@ -101,18 +101,18 @@ The two specs for lab are in `assets`. Pages/Index.js should return top level co
 
 - [ ] Should display X Locations World Wide where X is number of cookie stands.
 
-- [ ] `<Header>`,`<Footer>`,`<CreateForm>` and `<ReportTable>` should each be in own file inside top level components folder.
+- [x] `<Header>`,`<Footer>`,`<CreateForm>` and `<ReportTable>` should each be in own file inside top level components folder.
 
-- [ ] Those components should be imported into Index.js
+- [x] Those components should be imported into Index.js
 
 --------
 ### Overview page details…
 
-- [ ] should live in pages/overview.js
+- [x] should live in pages/overview.js
 
-- [ ] should render `<Link href="/"><a>Return to Main page</a></Link>`
+- [x] should render `<Link href="/"><a>Return to Main page</a></Link>`
 
-- [ ] Style all components using TailwindCSS utility classes to match spec.
+- [x] Style all components using TailwindCSS utility classes to match spec.
 
 Pro tip: Tailwind CSS Extension Pack
 
