@@ -3,35 +3,38 @@ import { useState } from 'react';
 
 
 
-export default function CookieForm() {
+export default function CookieForm(onCreate) {
     const initVal = {
         location: "",
-        max: 0,
-        min: 0,
-        avg: 0,
+        maxCustomers: 0,
+        minCustomers: 0,
+        avgCookies: 0,
     }
 
-    const[values,setValues] = useState(initVal);
+    const hourlySales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
+
+
+    const[values,setValues] = useState([]);
     const [stands, setStands] = useState([]);
 
     function onCreate(event){
-        // event.preventDefault();
+        event.preventDefault();
+
         const stand = {
         location: event.target.location.value,
-        minCustomers: event.target.minCustomers.value,
-        maxCustomers: event.target.maxCustomers.value, 
-        avgCookies: event.target.avgCookies.value,
-        };
+        hourly_sales: hourlySales,
+        id: stands.length,        
+    };
         setStands([...stands, stand]);
-
+        setValues(initVal)
     }
 
 
-    function submitHandler(event) {
-        event.preventDefault();
-        onCreate(values);    
-        setValues(initVal);
-    }
+    // function submitHandler(event) {
+    //     event.preventDefault();
+    //     onCreate(event);    
+    //     setValues(values);
+    // }
 
 
 
@@ -47,7 +50,7 @@ export default function CookieForm() {
     
 
     return (
-        <form onSubmit={submitHandler} class="flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
+        <form onSubmit={onCreate} class="flex-row mx-28 p-4 my-5 rounded-md bg-green-300">
             <h2 class="mb-5">Create Cookie Stand</h2>
 
             <div class="flex mb-5">
@@ -56,7 +59,7 @@ export default function CookieForm() {
                     type="text"
                     name="location"
                     id="location"
-                    value={values.location}
+                    // value={location}
                     onChange={inputChangeHandler}
                     placeholder="Cookie Stand Location"
                 />            
@@ -69,7 +72,7 @@ export default function CookieForm() {
                     type="number"
                     name="minCustomers"
                     id="minCustomers"
-                    value={values.minCustomers}
+                    // value={minCustomers.value}
                     onChange={inputChangeHandler}
                 />                
                 </div>
@@ -79,7 +82,7 @@ export default function CookieForm() {
                     type="number"
                     name="maxCustomers"
                     id="maxCustomers"
-                    value={values.maxCustomers}
+                    // value={values.maxCustomers}
                     onChange={inputChangeHandler}
                 />                  
             </div>
@@ -90,7 +93,7 @@ export default function CookieForm() {
                     step ="0.1"
                     name="avgCookies"
                     id="avgCookies"
-                    value={values.avgCookies}
+                    // value={values.avgCookies}
                     onChange={inputChangeHandler}
                 />
             </div>
