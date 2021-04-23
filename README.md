@@ -124,6 +124,8 @@ __________________
 - Server: Next.js
 - Client: REACT
 
+- Deployed at Vercel: https://cookie-stand-admin-beta.vercel.app/
+
 ____________________
 
 ### Testing
