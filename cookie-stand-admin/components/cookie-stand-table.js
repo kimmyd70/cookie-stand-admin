@@ -1,13 +1,15 @@
+import render from 'react'
 import { hours } from '../pages/data';
 
 
 export default function CookieTable({ stands, totalLength}) {
     const hourlySales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
     const totalSales = hourlySales.reduce((acc, hour) => acc = acc + hour, 0)
-
-        if (totalLength == 0) {
-        return (<p className="text-center flex justify-center">No Cookie Stands Available</p>)
-        }
+    
+    if (totalLength == 0){
+        return <p className="text-center flex justify-center">No Cookie Stands Available</p>
+    }
+    
     return (
         <table class="">
             <thead class="text-center bg-green-500 p-1">

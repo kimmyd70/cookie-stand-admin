@@ -61,7 +61,7 @@ export default function CookieAdmin(){
     //         return stands.filter(candidate => candidate.id !== stand.id);
     //     });
     // }
-
+    
     return (
         <div class="min-h-screen box-border bg-green-50">
             <Head>
@@ -73,7 +73,9 @@ export default function CookieAdmin(){
 
             <main class = "text-center">
                 <CookieForm onCreate />
-                <CookieTable stands = {stands} />
+                <CookieTable totalLength = {totalLength} stands = {stands} />
+
+
             </main>
             <CookieFooter totalLength= {totalLength} />
         </div>
