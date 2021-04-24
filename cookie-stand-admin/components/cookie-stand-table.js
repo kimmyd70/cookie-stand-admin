@@ -2,13 +2,14 @@ import render from 'react'
 import { hours } from '../pages/data';
 
 
-export default function CookieTable() {
+export default function CookieTable({standsArray}) {
     const hourlySales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
     const totalSales = hourlySales.reduce((acc, hour) => acc = acc + hour, 0)
-    const totalStands = stands.length
-    console.log({stands})
-    // if (totalLength == 0){
-    //     return <p className="text-center flex justify-center">No Cookie Stands Available</p>
+    const totalStands = standsArray.length
+    console.log({totalStands})
+    // if (standsArray.length === 0){
+    //     return (<p className="text-center flex justify-center">No Cookie Stands Available</p>
+    //     )
     // }
     return (
         <table class="">
@@ -20,19 +21,23 @@ export default function CookieTable() {
                 </tr>
             </thead>
 
-            {/* <tbody>
-                <tr class="text-center border border-green-500 odd:bg-green-200 even:bg-green-300">
-                    <td class="">first stand</td>
-                    <td> hour1</td>
-                </tr>
-                <tr class="text-center border border-green-500 odd:bg-green-200 even:bg-green-300">
-                    <td class="">first stand</td>
-                    <td> hour1</td>
-                </tr>
-
-            </tbody> */}
 
             <tbody>
+            {/* {standsArray.map(stand =>   */}
+                    {/* <tr className="text-right border border-green-500 odd:bg-green-200 even:bg-green-300">  */}
+
+                        {/* <td class="p-4">{stand.location}</td> */}
+                    {/* </tr>
+                 <td> hour1</td> */}
+                
+                    <tr class="text-center border border-green-500 odd:bg-green-200 even:bg-green-300">
+                    <td class="">first stand</td>
+                    <td> hour1</td>
+                </tr>
+ 
+            </tbody>
+
+            {/* <tbody>
                 {stands.map((stand, i) => {
                     return (
                         <tr key={stand.location} className="text-right border border-green-500 odd:bg-green-200 even:bg-green-300">
@@ -55,7 +60,7 @@ export default function CookieTable() {
                         </tr>
                     )
                 })}
-            </tbody>
+            </tbody> */}
 
             <tfoot class="font-bold">
 

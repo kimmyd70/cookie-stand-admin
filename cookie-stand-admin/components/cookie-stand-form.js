@@ -11,25 +11,25 @@ export default function CookieForm() {
     //     minCustomers: 0,
     //     avgCookies: 0,
     // }
-
+    const[values,setValues] = useState([]);
+    const [stands, setStands] = useState([]);
     const hourlySales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
     const hardCodeStand = 'Chicago'
 
-    // const[values,setValues] = useState([]);
-    const [stands, setStands] = useState([]);
 
     function onCreate(event){
         event.preventDefault();
 
         const stand = {
-        location: hardCodeStand,
+        location: event.target.location.value,
         hourly_sales: hourlySales,
         id: stands.length,        
         };
-        setStands(stand);
-        // setValues(event.target.location.value)
+        setStands([...stands, stand]);
+        // setValues([...values, stand.hourly_sales])
         console.log ('stand created')
         console.log({stands})
+        console.log({values})
     }
 
 
@@ -41,15 +41,18 @@ export default function CookieForm() {
 
 
 
-    // function inputChangeHandler(event) {
-    //     let { name, value, type } = event.target;
+    function inputChangeHandler(event) {
+        event.preventDefault();
+        let { name, value, type } = event.target;
     
-    //     if (type === "number") {
-    //         value = parseFloat(value);
-    //     }
-    
-    //     setValues({ ...values, [name]: value });
-    // }
+        if (type === "number") {
+            value = parseFloat(value);
+        }
+        // setStands({...stands, [name]: value})
+        // setStands({...stands, });
+
+        setValues({ ...values, [name]: value });
+    }
     
 
     return (
@@ -62,14 +65,14 @@ export default function CookieForm() {
                     type="text"
                     name="location"
                     id="location"
-                    // value={location.value}
-                    // onChange={inputChangeHandler}
+                    value={values.name}
+                    onChange={inputChangeHandler}
                     placeholder="Cookie Stand Location"
                 />            
             </div>
 
             <div class="flex items-center gap-x-4 mt-5 ">
-            {/* <div class="flex-1">
+            <div class="flex-1">
                 <label htmlFor="minCustomers" class="">Minimum Customers Per Hour</label>
                 <input
                     type="number"
@@ -78,8 +81,8 @@ export default function CookieForm() {
                     // value={minCustomers.value}
                     onChange={inputChangeHandler}
                 />                
-                </div> */}
-            {/* <div class="flex-1">
+                </div>
+            <div class="flex-1">
                 <label htmlFor="maxCustomers" class="">Maximum Customers Per Hour</label>
                 <input
                     type="number"
@@ -88,8 +91,8 @@ export default function CookieForm() {
                     // value={values.maxCustomers}
                     onChange={inputChangeHandler}
                 />                  
-            </div> */}
-            {/* <div class="flex-1">
+            </div>
+            <div class="flex-1">
                 <label htmlFor="avgCookies" class="">Average Cookies Per Sale</label>
                 <input
                     type="number"
@@ -99,7 +102,7 @@ export default function CookieForm() {
                     // value={values.avgCookies}
                     onChange={inputChangeHandler}
                 />
-            </div> */}
+            </div>
                 <button type = "submit" class="flex-1 rounded-md pt-3 pb-3  bg-green-500">Create</button>
             </div>
         </form>
