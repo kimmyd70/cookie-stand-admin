@@ -74,7 +74,7 @@ The two specs for lab are in `assets`. Pages/Index.js should return top level co
 ----------
 
 ### `<CreateForm>` component details…
-- [ ] Receive an onCreate function to be called when form is submitted.
+- [x] Receive an onCreate function to be called when form is submitted.
     - onCreate should be passed argument object representing new cookie stand.
 
     - Object should have location property.
@@ -97,9 +97,9 @@ The two specs for lab are in `assets`. Pages/Index.js should return top level co
 --------
 ### `<Footer>` component details…
 
-- [ ] Should receive reports array on props.
+- [x] Should receive reports array on props.
 
-- [ ] Should display X Locations World Wide where X is number of cookie stands.
+- [x] Should display X Locations World Wide where X is number of cookie stands.
 
 - [x] `<Header>`,`<Footer>`,`<CreateForm>` and `<ReportTable>` should each be in own file inside top level components folder.
 
