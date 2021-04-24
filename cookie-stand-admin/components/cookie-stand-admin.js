@@ -80,7 +80,7 @@ export default function CookieAdmin(){
 
 
             </main>
-            <CookieFooter />
+            <CookieFooter totalLength={stands.length}/>
         </div>
     );
 

@@ -67,10 +67,10 @@ The two specs for lab are in `assets`. Pages/Index.js should return top level co
     - `<Head>` should set page title Cookie Stand Admin
 - [x] Have a custom `<Header>` component that matches spec.
     - `<Header>` component should have Next `<Link>` to overview page.
-- [ ] Have a `<main>` component.
+- [x] Have a `<main>` component.
     - Within `<main>` have custom `<CreateForm>` and `<ReportTable>` components.
     - Import time slot data from supplied data.js file.
-- [ ] Have a custom `<Footer>` component that matches spec.
+- [x] Have a custom `<Footer>` component that matches spec.
 ----------
 
 ### `<CreateForm>` component details…
