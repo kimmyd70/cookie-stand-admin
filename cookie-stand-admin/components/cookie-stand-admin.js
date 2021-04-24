@@ -8,9 +8,9 @@ import CookieForm from './cookie-stand-form'
 
 export default function CookieAdmin(){
 
-    const [stands, setStands] = useState([]);
+    // const [stands, setStands] = useState([]);
     // const totalSales = hourlySales.reduce((acc, hour) => acc = acc + hour, 0)
-    const totalLength = stands.length
+    // const totalLength = stands.length
 
     // function onCreate(event){
     //     // event.preventDefault();
@@ -72,11 +72,11 @@ export default function CookieAdmin(){
 
             <main class = "text-center">
                 <CookieForm onCreate />
-                <CookieTable totalLength = {totalLength} stands = {stands} />
+                {/* <CookieTable  /> */}
 
 
             </main>
-            <CookieFooter totalLength= {totalLength} />
+            <CookieFooter />
         </div>
     );
 

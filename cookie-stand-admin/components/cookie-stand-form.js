@@ -1,32 +1,35 @@
 import { useState } from 'react';
+// import CookieTable from './cookie-stand-table.js'
 
 
 
 
-export default function CookieForm(onCreate) {
-    const initVal = {
-        location: "",
-        maxCustomers: 0,
-        minCustomers: 0,
-        avgCookies: 0,
-    }
+export default function CookieForm() {
+    // const initVal = {
+    //     location: "",
+    //     maxCustomers: 0,
+    //     minCustomers: 0,
+    //     avgCookies: 0,
+    // }
 
     const hourlySales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
+    const hardCodeStand = 'Chicago'
 
-
-    const[values,setValues] = useState([]);
+    // const[values,setValues] = useState([]);
     const [stands, setStands] = useState([]);
 
     function onCreate(event){
         event.preventDefault();
 
         const stand = {
-        location: event.target.location.value,
+        location: hardCodeStand,
         hourly_sales: hourlySales,
         id: stands.length,        
-    };
-        setStands([...stands, stand]);
-        setValues(initVal)
+        };
+        setStands(stand);
+        // setValues(event.target.location.value)
+        console.log ('stand created')
+        console.log({stands})
     }
 
 
@@ -38,15 +41,15 @@ export default function CookieForm(onCreate) {
 
 
 
-    function inputChangeHandler(event) {
-        let { name, value, type } = event.target;
+    // function inputChangeHandler(event) {
+    //     let { name, value, type } = event.target;
     
-        if (type === "number") {
-            value = parseFloat(value);
-        }
+    //     if (type === "number") {
+    //         value = parseFloat(value);
+    //     }
     
-        setValues({ ...values, [name]: value });
-    }
+    //     setValues({ ...values, [name]: value });
+    // }
     
 
     return (
@@ -59,14 +62,14 @@ export default function CookieForm(onCreate) {
                     type="text"
                     name="location"
                     id="location"
-                    // value={location}
-                    onChange={inputChangeHandler}
+                    // value={location.value}
+                    // onChange={inputChangeHandler}
                     placeholder="Cookie Stand Location"
                 />            
             </div>
 
             <div class="flex items-center gap-x-4 mt-5 ">
-            <div class="flex-1">
+            {/* <div class="flex-1">
                 <label htmlFor="minCustomers" class="">Minimum Customers Per Hour</label>
                 <input
                     type="number"
@@ -75,8 +78,8 @@ export default function CookieForm(onCreate) {
                     // value={minCustomers.value}
                     onChange={inputChangeHandler}
                 />                
-                </div>
-            <div class="flex-1">
+                </div> */}
+            {/* <div class="flex-1">
                 <label htmlFor="maxCustomers" class="">Maximum Customers Per Hour</label>
                 <input
                     type="number"
@@ -85,8 +88,8 @@ export default function CookieForm(onCreate) {
                     // value={values.maxCustomers}
                     onChange={inputChangeHandler}
                 />                  
-            </div>
-            <div class="flex-1">
+            </div> */}
+            {/* <div class="flex-1">
                 <label htmlFor="avgCookies" class="">Average Cookies Per Sale</label>
                 <input
                     type="number"
@@ -96,7 +99,7 @@ export default function CookieForm(onCreate) {
                     // value={values.avgCookies}
                     onChange={inputChangeHandler}
                 />
-            </div>
+            </div> */}
                 <button type = "submit" class="flex-1 rounded-md pt-3 pb-3  bg-green-500">Create</button>
             </div>
         </form>

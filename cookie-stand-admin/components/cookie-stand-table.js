@@ -2,14 +2,14 @@ import render from 'react'
 import { hours } from '../pages/data';
 
 
-export default function CookieTable({ stands, totalLength}) {
+export default function CookieTable() {
     const hourlySales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
     const totalSales = hourlySales.reduce((acc, hour) => acc = acc + hour, 0)
-    
-    if (totalLength == 0){
-        return <p className="text-center flex justify-center">No Cookie Stands Available</p>
-    }
-    
+    const totalStands = stands.length
+    console.log({stands})
+    // if (totalLength == 0){
+    //     return <p className="text-center flex justify-center">No Cookie Stands Available</p>
+    // }
     return (
         <table class="">
             <thead class="text-center bg-green-500 p-1">
@@ -35,7 +35,7 @@ export default function CookieTable({ stands, totalLength}) {
             <tbody>
                 {stands.map((stand, i) => {
                     return (
-                        <tr key={stand.id} className="text-right border border-green-500 odd:bg-green-200 even:bg-green-300">
+                        <tr key={stand.location} className="text-right border border-green-500 odd:bg-green-200 even:bg-green-300">
                             <th>
                                 <div>
                                     <p className="float-left pl-4">{stand.location}</p>
@@ -46,7 +46,7 @@ export default function CookieTable({ stands, totalLength}) {
                                     </span>
                                 </div>
                             </th>
-                            {stand.cookiesEachHour.map((amt, i) => (
+                            {stand.hourlySales.map((amt, i) => (
                                 <td key={i}>
                                     {amt}
                                 </td>
@@ -61,8 +61,8 @@ export default function CookieTable({ stands, totalLength}) {
 
                 <tr className="text-right bg-green-400">
                     <td >Totals</td>
-                        {hourlySales.map(sales => (<td>{sales * totalLength}</td>))}
-                    <td>{totalSales * totalLength}</td>                
+                        {hourlySales.map(sales => (<td>{sales * totalStands}</td>))}
+                    <td>{totalSales * totalStands}</td>                
                 </tr>
 
             </tfoot>
